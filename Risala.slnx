@@ -1,0 +1,18 @@
+<Solution>
+  <Folder Name="/packages/">
+    <Folder Name="/OpenCollection.NET/">
+      <Folder Name="/Solution Items/">
+        <File Path="packages/OpenCollection.NET/.editorconfig" />
+      </Folder>
+      <Folder Name="/src/">
+        <Project Path="packages/OpenCollection.NET/src/Risala.OpenCollection/Risala.OpenCollection.csproj" />
+      </Folder>
+    </Folder>
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Risala/Risala.csproj" />
+  </Folder>
+</Solution>
