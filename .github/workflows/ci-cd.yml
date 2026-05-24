@@ -1,0 +1,39 @@
+name: OpenCollection.NET CI/CD Pipeline
+
+on:
+  push:
+    paths:
+      - 'packages/OpenCollection.NET/**'
+  pull_request:
+    paths:
+      - 'packages/OpenCollection.NET/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    name: Continuous Integration
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        id: checkout_repo
+        uses: actions/checkout@v6
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.x
+
+      - name: Build OpenCollection.NET
+        id: build_opencollection
+        shell: pwsh
+        run: |
+          dotnet build packages/OpenCollection.NET/Risala.OpenCollection.slnx -c Release
+
+      - name: Run OpenCollection.NET unit tests
+        id: run_opencollection_unit_tests
+        shell: pwsh
+        run: |
+          dotnet test packages/OpenCollection.NET/Risala.OpenCollection.slnx -c Release -v n
